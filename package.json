@@ -1,0 +1,40 @@
+{
+  "name": "auroraswebsite",
+  "version": "0.0.1",
+  "description": "Website for Auoras Barber and Beauty Shop",
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slc7035/auroraswebsite.git"
+  },
+  "author": "Steven Crespo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slc7035/auroraswebsite/issues"
+  },
+  "homepage": "https://github.com/slc7035/auroraswebsite",
+  "dependencies": {
+    "angular2": "2.0.0-beta.0",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "nconf": "^0.8.4",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "systemjs": "0.19.6",
+    "zone.js": "0.5.10",
+    "morgan": "~1.6.1",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "serve-favicon": "~2.3.0",
+    "jade": "~1.11.0"
+  },
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "lite-server": "^2.1.0"
+  }
+}
