@@ -1,5 +1,6 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  input(type="hidden" value="#{services}" id="servicesJSON")
+  input(type="hidden" value="#{error}" data-error-message="#{message}" id="error")
+  #mainContent

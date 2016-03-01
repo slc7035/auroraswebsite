@@ -1,0 +1,207 @@
+[
+    {
+        "category": "Men",
+        "name": "Haircut",
+        "price": 15,
+        "extra": "y"
+    },
+    {
+        "category": "Men",
+        "name": "Beard or Trims",
+        "price": 5,
+        "extra": "y"
+    },
+    {
+        "category": "Men",
+        "name": "Mustache",
+        "price": 3,
+        "extra": "y"
+    },
+    {
+        "category": "Men",
+        "name": "Chin Straps",
+        "price": 5
+    },
+    {
+        "category": "Men",
+        "name": "Facial & Hot Shave",
+        "price": 25,
+        "extra": "y"
+    },
+    {
+        "category": "Men",
+        "name": "Color Blending",
+        "price": 20,
+        "extra": "y"
+    },
+    {
+        "category": "Royal Treatment",
+        "name": "Includes shampoo, haircut, hot shave, facial, and a finished style",
+        "price": 45,
+        "extra": "y"
+    },
+    {
+        "category": "Children",
+        "name": "Haircut",
+        "price": 10,
+        "extra": "y"
+    },
+    {
+        "category": "Children",
+        "name": "1st Haircut",
+        "price": 7,
+        "extra": "y"
+    },
+    {
+        "category": "Ladies",
+        "name": "Haircut",
+        "price": 15,
+        "extra": "y"
+    },
+    {
+        "category": "Ladies",
+        "name": "Shampoo & Blowout",
+        "price": 20,
+        "extra": "y"
+    },
+    {
+        "category": "Ladies",
+        "name": "Shampoo & Set",
+        "price": 17,
+        "extra": "y"
+    },
+    {
+        "category": "Ladies",
+        "name": "Shampoo, Cut, Style",
+        "price": 25,
+        "extra": "y"
+    },
+    {
+        "category": "Ladies",
+        "name": "Color",
+        "price": 50,
+        "extra": "y"
+    },
+    {
+        "category": "Ladies",
+        "name": "Color & Highlight",
+        "price": 65,
+        "extra": "y"
+    },
+    {
+        "category": "Ladies",
+        "name": "Vibrant Color",
+        "price": 5,
+        "extra": "a foil"
+    },
+    {
+        "category": "Ladies",
+        "name": "Perm",
+        "price": 50,
+        "extra": "y"
+    },
+    {
+        "category": "Ladies",
+        "name": "Spiral Perm",
+        "price": 75,
+        "extra": "y"
+    },
+    {
+        "category": "Ladies",
+        "name": "Chemical Straightening",
+        "price": 75,
+        "extra": "y"
+    },
+    {
+        "category": "Other",
+        "name": "Ear Piercing",
+        "price": 20
+    },
+    {
+        "category": "Other",
+        "name": "Glitter Tattoo",
+        "price": 10,
+        "extra": "y"
+    },
+    {
+        "category": "Waxing",
+        "name": "Eyebrows",
+        "price": 12
+    },
+    {
+        "category": "Waxing",
+        "name": "Chin",
+        "price": 8
+    },
+    {
+        "category": "Waxing",
+        "name": "Upper Lip",
+        "price": 8
+    },
+    {
+        "category": "Waxing",
+        "name": "Sideburns",
+        "price": 10
+    },
+    {
+        "category": "Waxing",
+        "name": "Bikini",
+        "price": 35
+    },
+    {
+        "category": "Waxing",
+        "name": "Legs",
+        "price": 50
+    },
+    {
+        "category": "Waxing",
+        "name": "Back",
+        "price": 25
+    },
+    {
+        "category": "Waxing",
+        "name": "Chest",
+        "price": 35
+    },
+    {
+        "category": "Waxing",
+        "name": "Arms",
+        "price": 30
+    },
+    {
+        "category": "Spa",
+        "name": "Pedicure",
+        "price": 30
+    },
+    {
+        "category": "Spa",
+        "name": "Natural Manicure",
+        "price": 15
+    },
+    {
+        "category": "Spa",
+        "name": "Gel Polish",
+        "price": 25
+    },
+    {
+        "category": "Spa",
+        "name": "Toenail Trim",
+        "price": 10
+    },
+    {
+        "category": "Spa",
+        "name": "Polish Change",
+        "price": 10
+    },
+    {
+        "category": "Spa",
+        "name": "Paraffin Hand Dip",
+        "price": 10
+    },
+    {
+        "category": "Pamper Package",
+        "name": "Includes shampoo, conditioning treatment, cut, blow dry, style, and eyebrow wax",
+        "price": 45,
+        "extra": "y"
+    }
+]

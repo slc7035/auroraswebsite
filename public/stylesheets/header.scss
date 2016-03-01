@@ -1,0 +1,34 @@
+@import 'colors';
+
+.header {
+  font-family: "Helvetica Nueue", Helvetica, Arial, sans-serif;
+  background-color: white;
+  width: 100%;
+  height: 44px;
+  display: flex;
+  color: $graphite;
+  line-height: 3em;
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 0 25px 0 black;
+
+  .header-logo {
+    flex: 8;
+    padding-left: 1em;
+  }
+
+  .header-item {
+    flex: 1;
+    text-align: center;
+
+    &.selected,
+    &:hover {
+      color: $black-05;
+      border-bottom: 2px solid $la-fin;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
