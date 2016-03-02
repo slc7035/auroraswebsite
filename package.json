@@ -4,6 +4,7 @@
   "description": "Website for Auoras Barber and Beauty Shop",
   "scripts": {
     "start": "node ./bin/www",
+    "build": "webpack --colors --progress",
     "dev": "NODE_ENV=development parallelshell \"npm run webpack\" \"npm start\"",
     "webpack": "webpack --colors --progress --watch"
   },
