@@ -43,12 +43,12 @@ function getServicesData(callback) {
 
 function init() {
   fs.readFile(path.resolve(__dirname, '../config/google-credentials.json'), 'utf-8', function(err, data) {
-    if (err && (!process.ENV.CLIENT_EMAIL || !process.ENV.PRIVATE_KEY))
+    if (err && (!process.env.CLIENT_EMAIL || !process.env.PRIVATE_KEY))
       console.log(err);
-    else if (err && process.ENV.CLIENT_EMAIL && process.ENV.PRIVATE_KEY)
+    else if (err && process.env.CLIENT_EMAIL && process.env.PRIVATE_KEY)
       credentials = {
-        "client_email": process.ENV.CLIENT_EMAIL,
-        "private_key": process.ENV.PRIVATE_KEY
+        "client_email": process.env.CLIENT_EMAIL,
+        "private_key": process.env.PRIVATE_KEY.replace(/\\n/g, "\n")
       };
     else {
       data = JSON.parse(data);
@@ -59,8 +59,8 @@ function init() {
     }
     getServicesData(function(err, spreadsheet) {
       if (err) {
-        console.err('***Error loading initial spreadsheet***');
-        console.err(err);
+        console.error('***Error loading initial spreadsheet***');
+        console.error(err);
       }
     });
   });
