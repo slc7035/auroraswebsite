@@ -1,0 +1,8 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: aurorasbarberandbeautyshop.com
+  name: Auroras Shop Website
+  host: www
+  disk_quota: 512M

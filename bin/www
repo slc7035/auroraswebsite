@@ -7,12 +7,17 @@
 var app = require('../app');
 var debug = require('debug')('auroraswebsite:server');
 var http = require('http');
+// cfenv provides access to your Cloud Foundry environment
+// for more info, see: https://www.npmjs.com/package/cfenv
+var cfenv = require('cfenv');
+// get the app environment from Cloud Foundry
+var appEnv = cfenv.getAppEnv();
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '80');
+var port = normalizePort(appEnv.port || process.env.PORT || '80');
 app.set('port', port);
 
 /**
