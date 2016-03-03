@@ -5,4 +5,3 @@ applications:
   domain: aurorasbarberandbeautyshop.com
   name: Auroras Shop Website
   host: www
-  disk_quota: 512M
