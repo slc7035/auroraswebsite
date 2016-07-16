@@ -1,6 +1,6 @@
 {
   "name": "auroraswebsite",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Website for Auoras Barber and Beauty Shop",
   "scripts": {
     "start": "node ./bin/www",
