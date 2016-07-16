@@ -5,30 +5,99 @@
   background-color: white;
   width: 100%;
   height: 44px;
-  display: flex;
+  display: inline-block;
   color: $graphite;
   line-height: 3em;
-  z-index: 2;
-  position: relative;
+  z-index: 1;
+  position: fixed;
   box-shadow: 0 0 25px 0 black;
 
   .header-logo {
-    flex: 8;
+		font-size: 1.5em;
+		width: 100%;
+		margin: 0 41%;
+  }
+
+  #Setmore_button_iframe {
+		text-decoration: none;
+    float: left;
     padding-left: 1em;
-  }
+		color: $graphite;
+		font-size: 1em;
+	}
 
-  .header-item {
-    flex: 1;
-    text-align: center;
+}
 
-    &.selected,
-    &:hover {
-      color: $black-05;
-      border-bottom: 2px solid $la-fin;
-    }
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+	width: 44px;
+	height: 44px;
+	right: 0px;
+	top: 0px;
+	background-color: $hayden-dark;
 
-    &:hover {
-      cursor: pointer;
-    }
-  }
+	&:hover {
+		.bm-icon {
+			color: $la-fin-hover;
+		}
+	}
+}
+
+/* Color/shape of burger icon bars */
+.bm-icon {
+	font-size: 36px;
+	text-align: center;
+	color: $la-fin;
+	padding-top: 4px;
+	padding-left: 1px;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: $hayden-dark;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Link Styling */
+.menu-item {
+	text-decoration: none;
+	font-weight: 700;
+	color: $flat-bone;
+	display: block;
+	height: 42px;
+
+	&.active {
+		color: $header-grey;
+	}
 }

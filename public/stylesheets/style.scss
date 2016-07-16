@@ -5,55 +5,13 @@
   font-family: "Helvetica Nueue", Helvetica, Arial, sans-serif;
   font-size: 14px;
 
-  .appointment-btn-border {
-    height: 5.2em;
-    width: 5.2em;
-    border-color: transparent;
-    border-radius: 100%;
-    background-color: black;
-    position: fixed;
-    right: .9em;
-    bottom: .9em;
-    z-index: 19000;
+  .page-wrap {
+		top: 44px;
+		position: absolute;
+    width: 100%;
   }
 
-  .appointment-btn {
-    height: 5em;
-    width: 5em;
-    border-color: transparent;
-    border-radius: 100%;
-    background-color: $basically-white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    color: $black-08;
-    float:none;
-    position: fixed;
-    right: 1em;
-    bottom: 1em;
-    z-index: 20000;
-
-    label {
-      position: absolute;
-      right: 5em;
-      bottom: 0px;
-      width: 161px;
-      font-weight: bold;
-      font-size: 1em;
-    }
-
-    #Setmore_button_iframe {
-      text-decoration: none;
-      color: $black-08;
-
-      &:hover {
-        color: $black-05;
-      }
-
-      .fa {
-        font-size: 2em;
-      }
-    }
-  }
+	button:hover {
+		cursor: pointer;
+	}
 }

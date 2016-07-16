@@ -2,9 +2,13 @@ var express = require('express');
 var path = require('path');
 var GoogleSpreadsheet = require('google-spreadsheet');
 var fs = require('fs');
+var path = require('path');
 var router = express.Router();
+
+var TITLE = process.env.TITLE ? process.env.TITLE : 'Auroras Barber and Beauty Shop';
 var credentials = {};
 var services = {};
+var stylists = [];
 
 /**
  * Takes a spreadsheet and turns it into a JSON object
@@ -17,7 +21,7 @@ function parseSpreadsheetData(spreadsheet, callback) {
 
   spreadsheet.useServiceAccountAuth(credentials, function(err) {
     if (err) callback(err);
-    spreadsheet.getRows(1, function(err, row_data) {
+    spreadsheet.getRows(1, 1, function(err, row_data) {
       if (err) callback(err);
       for (var i=0; i < row_data.length; ++i) {
         if (!services[row_data[i].category]) services[row_data[i].category] = [];
@@ -27,7 +31,25 @@ function parseSpreadsheetData(spreadsheet, callback) {
           extra: row_data[i].extra
         });
       }
-      callback(null);
+    });
+
+    spreadsheet.getRows(2, 1, function(err, row_data) {
+      if (err) callback(err);
+      for (var i=0; i < row_data.length; ++i) {
+				var stylist = {
+          name: row_data[i].name,
+          bio: row_data[i].bio
+        };
+
+				try {
+					fs.accessSync(path.resolve(__dirname, '../public/images/' + stylist.name + '.jpg'), fs.F_OK);
+					stylist.img = stylist.name;
+				} catch (e) {
+					stylist.img = 'default-stylist';
+				}
+        stylists.push(stylist);
+      }
+      callback();
     });
   });
 }
@@ -69,25 +91,21 @@ function init() {
 init();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/*', function(req, res, next) {
   if (services.length === 0) {
     //use default services data
     services = fs.readFile(path.resolve(__dirname, '../config/services.json'), 'utf-8', function(err, data) {
-      var renderContent = {};
-      if (err)
-        renderContent = {
+      if (err) {
+        res.render('error', {
           error: err,
           message: 'Could not load any services'
-        };
+        });
+      }
       else
-        renderContent = {
-          title: 'Auroras Barber and Beauty Shop',
-          services: JSON.stringify(services)
-        };
-      res.render('index', renderContent);
+        res.render('index', {title: TITLE, services: JSON.stringify(data), 'stylists': JSON.stringify(stylists)});
     });
   } else {
-    res.render('index', { title: 'Auroras Barber and Beauty Shop', services: JSON.stringify(services)});
+    res.render('index', { title: TITLE, services: JSON.stringify(services), 'stylists': JSON.stringify(stylists)});
   }
 });
 

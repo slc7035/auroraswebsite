@@ -50,10 +50,6 @@
         .service-price {
           line-height: 2em;
         }
-
-        .dots {
-          height: 1em;
-        }
       }
 
       .service-name {
@@ -63,13 +59,6 @@
       .service-price {
         font-weight: 100;
         padding-right: 25px;
-      }
-
-      .dots {
-        margin: 0px 5px;
-        border-bottom: 3px dotted $graphite;
-        flex: 2;
-        height: 2.45em;
       }
     }
   }

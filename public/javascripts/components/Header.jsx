@@ -1,26 +1,35 @@
 import React from 'react';
+import {slide as Menu} from 'react-burger-menu';
+import { Link } from 'react-router'
 import '../../stylesheets/header.scss';
 
 export default class Header extends React.Component {
-  static propTypes = {
-    click: React.PropTypes.func,
-    tabs: React.PropTypes.array,
-    selected: React.PropTypes.string
-  };
-  render() {
-    let headerItems = [];    
-    for (let tab of this.props.tabs) {
-      headerItems.push(<div className={'header-item' + (this.props.selected === tab ? ' selected' : '')} data-header-type={tab} key={tab} onClick={this._tabClick}>{tab[0].toUpperCase() + tab.slice(1)}</div>);
-    }
+	componentDidMount() {
+		var el = document.getElementById('bm-icon');
+		if (el.classList) {
+			el.classList.add('fa');
+			el.classList.add('fa-bars');
+		}
+		else
+			el.className += ' fa fa-bars';
+	}
 
+  render() {
     return (
-      <div className='header'>
-        <div className='header-logo'>Auroras Barber and Beauty Shop</div>
-        {headerItems}
+      <div>
+        <div className='header'>
+					<a id='Setmore_button_iframe'href='https://my.setmore.com/shortBookingPage/047a7c9e-6675-4dfb-bce8-445458e61280'>
+						Book an appointment!
+					</a>
+          <div className='header-logo'>Auroras Barber and Beauty Shop</div>
+        </div>
+				<Menu right id="menu" customBurgerIcon={<i id="bm-icon"></i>}>
+					<Link id="home" className="menu-item" activeClassName="active" to='/'>Home</Link>
+					<Link id="services" className="menu-item" activeClassName="active" to='/services'>Services</Link>
+					<Link id="stylists" className="menu-item" activeClassName="active" to='/stylists'>Stylists</Link>
+					<Link id="about" className="menu-item" activeClassName="active" to='/about'>About</Link>
+				</Menu>
       </div>
     );
-  }
-  _tabClick = (e) => {
-    this.props.click(e.target.attributes['data-header-type'].value);
   }
 }

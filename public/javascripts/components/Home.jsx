@@ -11,10 +11,14 @@ export default class Home extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: true,
-      autoplay: true,
-      autoplaySpeed: 7500,
       className: 'home-carousel'
     };
+
+		// <div className='divider'></div>
+		// <div className='testimonial'>
+		// 	<p className='testimonial-review'>Aurora is an excellent professional and would recommend her to anyone. Any business with her experience and personal character running it will be a successful one.</p>
+		// </div>
+
     return (
       <div className='home'>
         <div className='content-row carousel-row'>

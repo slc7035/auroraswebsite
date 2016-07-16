@@ -12,12 +12,13 @@
 
     //carousel css
     &.carousel-row {
-      background-color: $hayden-dark;
+      background-color: $hayden-light;
+      width: 100%;
       height: calc(100vw * .75 * .666); //Need a default height or the page flickers
 
       .home-carousel {
-        width: 75%;
-        margin: auto;
+				width: 75%;
+    		margin: auto;
 
         .slick-dots {
           bottom: 0px;
@@ -37,7 +38,7 @@
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      z-index: 2;
+      z-index: 1;
       box-shadow: 0 0 25px 0 black;
 
       .description {

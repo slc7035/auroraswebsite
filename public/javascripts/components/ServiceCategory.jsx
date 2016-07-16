@@ -13,7 +13,6 @@ export default class ServiceCategory extends React.Component {
       services.push(
         <div className='service' key={service.name}>
           <div className='service-name'>{service.name}</div>
-          <div className='dots'></div>
           <div className='service-price'>${service.price + (service.extra ? ' +' : '')}</div>
         </div>
       );
