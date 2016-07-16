@@ -13,6 +13,7 @@ export default class Header extends React.Component {
 		else
 			el.className += ' fa fa-bars';
 	}
+	//<Link id="about" className="menu-item" activeClassName="active" to='/about'>About</Link>
 
   render() {
     return (
@@ -27,7 +28,6 @@ export default class Header extends React.Component {
 					<Link id="home" className="menu-item" activeClassName="active" to='/'>Home</Link>
 					<Link id="services" className="menu-item" activeClassName="active" to='/services'>Services</Link>
 					<Link id="stylists" className="menu-item" activeClassName="active" to='/stylists'>Stylists</Link>
-					<Link id="about" className="menu-item" activeClassName="active" to='/about'>About</Link>
 				</Menu>
       </div>
     );

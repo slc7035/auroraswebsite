@@ -13,7 +13,7 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <Header click={this._changeContext} tabs={['home', 'services', 'stylists', 'about']} />
+        <Header click={this._changeContext} tabs={['home', 'services', 'stylists']} />
 				<div className='page-wrap'>
 					{this.props.children}
 				</div>
