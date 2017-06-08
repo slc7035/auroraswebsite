@@ -107,6 +107,7 @@ router.get('/*', function(req, res, next) {
   } else {
     res.render('index', { title: TITLE, services: JSON.stringify(services), 'stylists': JSON.stringify(stylists)});
   }
+  init();
 });
 
 module.exports = router;
