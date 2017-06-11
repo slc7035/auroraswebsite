@@ -23,6 +23,7 @@ function parseSpreadsheetData(spreadsheet, callback) {
     if (err) callback(err);
     spreadsheet.getRows(1, 1, function(err, row_data) {
       if (err) callback(err);
+      services = {};
       for (var i=0; i < row_data.length; ++i) {
         if (!services[row_data[i].category]) services[row_data[i].category] = [];
         services[row_data[i].category].push({
@@ -35,6 +36,7 @@ function parseSpreadsheetData(spreadsheet, callback) {
 
     spreadsheet.getRows(2, 1, function(err, row_data) {
       if (err) callback(err);
+      stylists = [];
       for (var i=0; i < row_data.length; ++i) {
 				var stylist = {
           name: row_data[i].name,

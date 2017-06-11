@@ -14,19 +14,21 @@ export default class Stylists extends React.Component {
 
       stylists.push(
         <div className='stylist' key={stylist.name}>
-					<div className='name'>{stylist.name}</div>
-				<img className='stylist-img' src={`../../images/${stylist.name.toLowerCase()}.jpg`} onError={(e) => {e.target.src=DEFAULT_IMG}}></img>
-					<div className='bio'>{stylist.bio}</div>
+          <div className='stylist-info'>
+            <div className='name'>{stylist.name}</div>
+            <img className='stylist-img' src={`../../images/${stylist.name.toLowerCase()}.jpg`} onError={(e) => { e.target.src = DEFAULT_IMG } }></img>
+          </div>
+          <div className='bio'>{stylist.bio}</div>
         </div>
       );
     }
 
     return (
       <div className='page-content stylists'>
-				<div className='title'>Meet the Stylists</div>
-				<div className='stylists-container'>
-        	{stylists}
-				</div>
+        <div className='title'>Meet the Stylists</div>
+        <div className='stylists-container'>
+          {stylists}
+        </div>
       </div>
     );
   }

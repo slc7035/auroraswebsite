@@ -17,3 +17,104 @@ $hayden-light: #8C8583;
 //Reds
 $la-fin: #DE6262;
 $la-fin-hover: #de7a7a;
+
+// Design Colors
+$base-material-palette: (
+    'base': #9E9E9E,
+    'colors': #FAFAFA #F5F5F5 #EEEEEE #E0E0E0 #BDBDBD #9E9E9E #757575 #616161 #424242 #212121
+) !default;
+
+$base-accent-material-palette: (
+    'base': #009688,
+    'colors': #A7FFEB #64FFDA #1DE9B6 #00BFA5
+);
+
+// Taken from https://www.sitepoint.com/using-sass-build-color-palettes/
+@function color-diff($a, $b) {
+  $sat: saturation($a) - saturation($b);
+  $lig: lightness($a) - lightness($b);
+  $fn-sat: if($sat > 0, 'desaturate', 'saturate');
+  $fn-lig: if($lig > 0, 'darken', 'lighten');
+
+  @return (
+    adjust-hue: -(hue($a) - hue($b)),
+    #{$fn-sat}: abs($sat),
+    #{$fn-lig}: abs($lig)
+  );
+}
+
+@function palette-diff($palette) {
+  $base: map-get($palette, 'base');
+  $colors: map-get($palette, 'colors');
+  $diffs: ();
+
+  @each $color in $colors {
+    $diffs: append($diffs, color-diff($base, $color));
+  }
+
+  @return $diffs;
+}
+
+$palette-diff: palette-diff($base-material-palette);
+$accent-palette-diff: palette-diff($base-accent-material-palette);
+
+@function apply-diff($color, $diff) {
+  @each $function, $value in $diff {
+    $color: call($function, $color, $value);
+  }
+
+  @return $color;
+}
+
+@function create-palette($color, $palette-diff) {
+    $palette: ();
+
+    @each $diff in $palette-diff {
+        $palette: append($palette, apply-diff($color, $diff));
+    }
+
+    @return $palette;
+}
+
+@function palette($base-color) {
+  $colors: create-palette($base-color, $palette-diff);
+  $keys: '50' '100' '200' '300' '400' '500' '600' '700' '800' '900';
+  $palette: ();
+
+  @for $i from 1 through min(length($colors), length($keys)) {
+    $palette: map-merge($palette, (nth($keys, $i): nth($colors, $i)));
+  }
+
+  @return $palette;
+}
+
+@function accent-palette($base-color) {
+  $colors: create-palette($base-color, $accent-palette-diff);
+  $keys: 'A100' 'A200' 'A400' 'A700';
+  $palette: ();
+
+  @for $i from 1 through min(length($colors), length($keys)) {
+    $palette: map-merge($palette, (nth($keys, $i): nth($colors, $i)));
+  }
+
+  @return $palette;
+}
+
+$grey-palette: palette(map-get($base-material-palette, 'base'));
+$grey-palette: map-merge($grey-palette, accent-palette(map-get($base-accent-material-palette, 'base')));
+
+$teal: #009688;
+$teal-palette: palette($teal);
+$teal-palette: map-merge($teal-palette, accent-palette($teal));
+
+$blue-grey: #607D8B;
+$blue-grey-palette: palette($blue-grey);
+$blue-grey-palette: map-merge($blue-grey-palette, accent-palette($blue-grey));
+
+$cyan: #00BCD4;
+$cyan-palette: palette($cyan);
+$cyan-palette: map-merge($cyan-palette, accent-palette($cyan));
+
+$orange: #FF5722;
+$orange-palette: palette($orange);
+$orange-palette: map-merge($orange-palette, accent-palette($orange));

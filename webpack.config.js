@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: ['./public/javascripts/components/Main.jsx','./public/stylesheets/reset.scss'],
@@ -18,9 +19,14 @@ module.exports = {
         }
       },
       {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file?name=public/lib/fonts/[name].[ext]'
+      },
+      {
         test: /\.scss$/,
         loader: 'style!css!postcss!sass?sourceMap'
       }
     ]
   },
+  // plugins: [new BundleAnalyzerPlugin()]
 };

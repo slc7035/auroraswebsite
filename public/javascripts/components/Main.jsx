@@ -30,4 +30,4 @@ ReactDOM.render((
 			<Route path="/stylists" component={Stylists} />
 		</Route>
   </Router>
-), document.getElementById('mainContent'));
+), document.getElementById('root'));
