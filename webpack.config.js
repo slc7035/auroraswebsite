@@ -6,6 +6,7 @@ module.exports = {
   entry: ['./public/javascripts/components/Main.jsx','./public/stylesheets/reset.scss'],
   output: {
     path: __dirname + '/public/build',
+    publicPath: 'http://localhost:3000/',
     filename: 'bundle.js'
   },
   module: {
@@ -15,7 +16,15 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react', 'stage-0']
+          presets: [
+            ["env", {
+              "targets": {
+                "browsers": ["last 2 versions", "safari >= 7"]
+              }
+            }], 
+            'react', 
+            'stage-0'
+          ]
         }
       },
       {

@@ -26,7 +26,6 @@
       justify-content: space-between;
       display: flex;
       width: 50%;
-      line-height: 5em;
       font-size: 1.5em;
       color: $graphite;
 
@@ -45,11 +44,6 @@
         .service-name {
           max-width: 80%;
         }
-
-        .service-name,
-        .service-price {
-          line-height: 2em;
-        }
       }
 
       .service-name {
@@ -62,4 +56,23 @@
       }
     }
   }
+}
+
+@media screen and (max-width: 1080px) {
+    .category {
+      width: 80%;
+      
+      .services-container {
+        flex-direction: column;
+
+        .service {
+          margin: 0 !important;
+          width: 100%;
+
+          &:nth-last-child(2):nth-child(odd) {
+            padding-bottom: 3.5em;
+          }
+        }
+      }
+    }
 }

@@ -1,5 +1,24 @@
 @import 'colors';
 
 .services-content {
-  // background-color: $flat-bone;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2em;
+
+  .search-container {
+    .search-label {
+      position: absolute;
+      padding-top: 11px;
+      padding-left: 6px;
+    }
+
+    #servicesFilter {
+      width: 100%;
+      background-color: white;
+      height: 2em;
+      padding: 5px;
+      padding-left: 25px;
+      border-radius: 100px;
+    }
+  }
 }

@@ -3,11 +3,12 @@ import styles from '../../stylesheets/style.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Header.jsx';
+import Footer from './Footer.jsx';
 import Home from './Home.jsx';
 import Services from './Services.jsx';
 import Stylists from './Stylists.jsx';
 import About from './About.jsx';
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router';
 
 class Main extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class Main extends React.Component {
 				<div className='page-wrap'>
 					{this.props.children}
 				</div>
+        <Footer />
       </div>
     );
   }

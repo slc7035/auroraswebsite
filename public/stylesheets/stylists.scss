@@ -11,7 +11,7 @@
 
 	.stylists-container {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		justify-content: space-between;
     padding-bottom: 2rem;
 
@@ -29,26 +29,52 @@
       .stylist-img {
 				width: 25em;
 				height: 25em;
+
+        // transform: ;
 			}
+
+      .bio-transition {
+        width: 25em;
+        height: 25em;
+        position: absolute;
+        margin-top: 3.85em;
+      }
+
+      .bio-transition-enter {
+        position: absolute;
+        opacity: 0;
+      }
+
+      .bio-transition-enter.bio-transition-enter-active {
+        opacity: 1;
+        transition: 500ms;
+      }
+
+      .bio-transition-leave {
+        opacity: 1;
+      }
+
+      .bio-transition-leave.bio-transition-leave-active {
+        opacity: 0;
+        transition: 500ms;
+      }
 
 			.bio {
-        align-self: center;
-        font-size: 1.3rem;
+        width: 25em;
+        height: 25em;
+        position: absolute;
+        background: rgba(255,255,255,.9);
+        display: flex;
+        
+        &__text {
+          align-self: center;
+          padding: 1em;
+        }
 			}
-
-      &:nth-child(odd) {
-        .bio {
-          padding-left: 2rem;
-        }
-      }
-
-      &:nth-child(even) {
-        flex-direction: row-reverse;
-
-        .bio {
-          padding-right: 2rem;
-        }
-      }
 	  }
 	}
+}
+
+@keyframes fadeinout {
+  50% { opacity: 1; }
 }
