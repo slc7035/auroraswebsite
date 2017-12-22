@@ -22,10 +22,11 @@ function parseSpreadsheetData(spreadsheet) {
 
   return Promise.nfcall(spreadsheet.useServiceAccountAuth, credentials)
   .then(() => {
-    return Promise.nfcall(spreadsheet.getRows, 1, 1)
+    return Promise.nfcall(spreadsheet.getRows, 3, 1)
       .then((row_data) => {
         row_data = row_data[0];
-        for (let  i=0; i < row_data.length; ++i) {
+        for (let i=0; i < row_data.length; ++i) {
+          row_data[i].category = row_data[i].category || 'Services';
           if (!services[row_data[i].category])
             services[row_data[i].category] = [];
           services[row_data[i].category].push({
@@ -79,6 +80,7 @@ function getSpreadsheetData() {
 }
 
 function init() {
+  console.log('Refreshing service information');
   return Promise.nfcall(fs.readFile, path.resolve(__dirname, '../config/google-credentials.json'), 'utf-8')
     .then((data) => {
       data = JSON.parse(data);

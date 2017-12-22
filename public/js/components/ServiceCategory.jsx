@@ -13,21 +13,22 @@ export default class ServiceCategory extends React.Component {
       services.push(
         <div className='service' key={service.name}>
           <div className='service-name' key={`service-${service.name}`}>{service.name}</div>
-          <div className='service-price' key={`service-price-${service.name}`}>${service.price + (service.extra ? ' +' : '')}</div>
+          <div className='service-price' key={`service-price-${service.name}`}>{service.price}</div>
+          <div className='service-extra'>{service.extra ? '+': ''}</div>
         </div>
       );
     }
 
     return (
       services.length === 0 ?
-      null
-      :
-      <div className='category'>
-        <div className='category-title'>{this.props.category}</div>
-        <div className='services-container'>
-          {services}
+        null
+        :
+        <div className='category'>
+          <div className='category-title'>{this.props.category}</div>
+          <div className='services-container'>
+            {services}
+          </div>
         </div>
-      </div>
     );
   }
 }

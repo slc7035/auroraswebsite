@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: ['./public/javascripts/components/Main.jsx','./public/stylesheets/reset.scss'],
+  entry: ['./public/js/components/Main.jsx','./public/stylesheets/reset.scss'],
   output: {
     path: __dirname + '/public/build',
     publicPath: 'http://localhost:3000/',
