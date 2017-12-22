@@ -22,7 +22,7 @@ function parseSpreadsheetData(spreadsheet) {
 
   return Promise.nfcall(spreadsheet.useServiceAccountAuth, credentials)
   .then(() => {
-    return Promise.nfcall(spreadsheet.getRows, 3, 1)
+    return Promise.nfcall(spreadsheet.getRows, 1, 1)
       .then((row_data) => {
         row_data = row_data[0];
         for (let i=0; i < row_data.length; ++i) {
