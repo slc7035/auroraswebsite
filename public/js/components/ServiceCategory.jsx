@@ -12,7 +12,7 @@ export default class ServiceCategory extends React.Component {
     for (let service of this.props.services) {
       if (service.name.toLowerCase().indexOf(this.props.filter.toLowerCase()) >= 0) {
         services.push(
-            <div className='service' key={service.name}>
+          <div className='service' key={service.name}>
             <div className='service-name' key={`service-${service.name}`}>{service.name}</div>
             <div className='service-price' key={`service-price-${service.name}`}>{service.price}</div>
             <div className='service-extra'>{service.extra ? '+': ''}</div>

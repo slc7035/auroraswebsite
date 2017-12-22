@@ -24,6 +24,7 @@ function parseSpreadsheetData(spreadsheet) {
   .then(() => {
     return Promise.nfcall(spreadsheet.getRows, 1, 1)
       .then((row_data) => {
+        services = {};
         row_data = row_data[0];
         for (let i=0; i < row_data.length; ++i) {
           row_data[i].category = row_data[i].category || 'Services';
@@ -45,6 +46,7 @@ function parseSpreadsheetData(spreadsheet) {
         return Promise.nfcall(spreadsheet.getRows, 2, 1)
           .then((row_data) => {
             row_data = row_data[0];
+            stylists = [];
             for (let  i=0; i < row_data.length; ++i) {
               let  stylist = {
                 name: row_data[i].name,

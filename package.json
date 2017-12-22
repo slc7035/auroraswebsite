@@ -8,7 +8,7 @@
     "dev": "NODE_ENV=development parallelshell \"yarn run webpack\" \"yarn run nodemon\"",
     "webpack": "webpack --colors --progress --watch",
     "nodemon": "nodemon -e js,dust --harmony ./bin/www",
-    "debug": "NODE_ENV=development node --harmony --debug-brk ./bin/www"
+    "debug": "NODE_ENV=development node --harmony --inspect-brk ./bin/www"
   },
   "repository": {
     "type": "git",
