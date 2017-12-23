@@ -23,9 +23,6 @@ export default class Header extends React.Component {
       header = (
         <div>
           <div className='header__mobile'>
-            <a id='Setmore_button_iframe' href='https://my.setmore.com/shortBookingPage/047a7c9e-6675-4dfb-bce8-445458e61280'>
-              Book an appointment!
-						</a>
             <div className='header__logo'>Auroras Barber and Beauty Shop</div>
           </div>
           <Menu right id='menu' customBurgerIcon={<i id='bm-icon'></i>}>
@@ -42,9 +39,6 @@ export default class Header extends React.Component {
           </div>
           <div className='header__section'>
             {links}
-            <a id='Setmore_button_iframe' href='https://my.setmore.com/shortBookingPage/047a7c9e-6675-4dfb-bce8-445458e61280'>
-              Book Online
-              </a>
           </div>
         </div>
       );
@@ -63,9 +57,8 @@ export default class Header extends React.Component {
             </a>
         </div>
         <div className='header__section'>
-          <a className='header__sm-icon' target='_blank' href='https://www.facebook.com/awing67/?hc_ref=SEARCH&fref=nf'><i className='fa fa-facebook fa-lg'></i></a>
-          <a className='header__sm-icon'><i className='fa fa-twitter fa-lg'></i></a>
-          <a className='header__sm-icon'><i className='fa fa-pinterest-p fa-lg'></i></a>
+          <a className='header__sm-icon' target='_blank' href='https://www.facebook.com/awing67/?hc_ref=SEARCH&fref=nf'><i className='fa fa-facebook-square fa-lg'></i></a>
+          <a className='header__sm-icon'><i className='fa fa-pinterest-square fa-lg'></i></a>
           <a className='header__sm-icon'><i className='fa fa-instagram fa-lg'></i></a>
         </div>
       </div>

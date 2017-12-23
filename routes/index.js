@@ -17,96 +17,70 @@ let stylists = [];
  *@param spreadsheet {GoogleSpreadsheet} - The spreadsheet in which we want to JSONify
  *@return Object - JSON representation of google spreadsheet
  */
-function parseSpreadsheetData(spreadsheet) {
-  let  spreadsheetJSON = {};
+async function parseSpreadsheetData(spreadsheet) {
+  await Promise.nfcall(spreadsheet.useServiceAccountAuth, credentials)
+  const services_data = (await Promise.nfcall(spreadsheet.getRows, 1, 1))[0]
+  services = {};
+  for (let i = 0; i < services_data.length; ++i) {
+    services_data[i].category = services_data[i].category || 'Services';
+    let service = {
+      name: services_data[i].name,
+      price: services_data[i].price,
+      extra: services_data[i].extra
+    };
+    services[services_data[i].category] = services[services_data[i].category] || [];
+    services[services_data[i].category].push(service);
+  }
+  console.log('Successfully fetched services data!');
+  const stylists_data = (await Promise.nfcall(spreadsheet.getRows, 2, 1))[0]
+  stylists = [];
+  for (let i = 0; i < stylists_data.length; ++i) {
+    let stylist = {
+      name: stylists_data[i].name,
+      bio: stylists_data[i].bio
+    };
 
-  return Promise.nfcall(spreadsheet.useServiceAccountAuth, credentials)
-  .then(() => {
-    return Promise.nfcall(spreadsheet.getRows, 1, 1)
-      .then((row_data) => {
-        services = {};
-        row_data = row_data[0];
-        for (let i=0; i < row_data.length; ++i) {
-          row_data[i].category = row_data[i].category || 'Services';
-          if (!services[row_data[i].category])
-            services[row_data[i].category] = [];
-          services[row_data[i].category].push({
-            name: row_data[i].name,
-            price: row_data[i].price,
-            extra: row_data[i].extra
-          });
-        }
-        console.log('Successfully fetched services data!');
-      })
-      .catch((err) => {
-        console.error('Error loading the services from google sheets');
-        console.error(err);
-      })
-      .then(() => {
-        return Promise.nfcall(spreadsheet.getRows, 2, 1)
-          .then((row_data) => {
-            row_data = row_data[0];
-            stylists = [];
-            for (let  i=0; i < row_data.length; ++i) {
-              let  stylist = {
-                name: row_data[i].name,
-                bio: row_data[i].bio
-              };
-
-              try {
-                fs.accessSync(path.resolve(__dirname, '../public/images/' + stylist.name + '.jpg'), fs.F_OK);
-                stylist.img = stylist.name;
-              } catch (e) {
-                stylist.img = 'default-stylist';
-              }
-              stylists.push(stylist);
-            }
-            console.log('Successfully fetched stylist data!');
-          });
-      })
-      .catch((err) => {
-        console.error('Error loading the stylist google sheets');
-        console.error(err);
-      });
-
-  });
+    try {
+      fs.accessSync(path.resolve(__dirname, '../public/images/' + stylist.name + '.jpg'), fs.F_OK);
+      stylist.img = stylist.name;
+    } catch (e) {
+      stylist.img = 'default-stylist';
+    }
+    stylists.push(stylist);
+  }
+  console.log('Successfully fetched stylist data!');
 }
 
-function getSpreadsheetData() {
-  return Promise.nfcall(fs.readFile, path.resolve(__dirname, '../config/app.json'), 'utf8')
-    .then((data) => {
-      data = JSON.parse(data);
-      let  spreadsheet = new GoogleSpreadsheet(data.servicesSpreadsheetKey);
-      return parseSpreadsheetData(spreadsheet);
-    });
+async function getSpreadsheetData() {
+  const data = JSON.parse(await Promise.nfcall(fs.readFile, path.resolve(__dirname, '../config/app.json'), 'utf8'))
+  const spreadsheet = new GoogleSpreadsheet(data.servicesSpreadsheetKey);
+  parseSpreadsheetData(spreadsheet);
 }
 
-function init() {
+async function init() {
   console.log('Refreshing service information');
-  return Promise.nfcall(fs.readFile, path.resolve(__dirname, '../config/google-credentials.json'), 'utf-8')
-    .then((data) => {
-      data = JSON.parse(data);
+  try {
+    const data = JSON.parse(await Promise.nfcall(fs.readFile, path.resolve(__dirname, '../config/google-credentials.json'), 'utf-8'))
+    credentials = {
+      "client_email": data.client_email,
+      "private_key": data.private_key
+    };
+  } catch (err) {
+    if (err && (!process.env.CLIENT_EMAIL || !process.env.PRIVATE_KEY)) {
+      return console.error(err);
+    } else if (err && process.env.CLIENT_EMAIL && process.env.PRIVATE_KEY) {
       credentials = {
-        "client_email": data.client_email,
-        "private_key": data.private_key
+        "client_email": process.env.CLIENT_EMAIL,
+        "private_key": process.env.PRIVATE_KEY.replace(/\\n/g, "\n")
       };
-    })
-    .catch((err) => {
-      if (err && (!process.env.CLIENT_EMAIL || !process.env.PRIVATE_KEY))
-        console.error(err);
-      else if (err && process.env.CLIENT_EMAIL && process.env.PRIVATE_KEY)
-        credentials = {
-          "client_email": process.env.CLIENT_EMAIL,
-          "private_key": process.env.PRIVATE_KEY.replace(/\\n/g, "\n")
-        };
-    })
-    .then(() => {
-      return getSpreadsheetData()
-        .catch((err) => {
-          console.error('***Error loading initial spreadsheet***');
-          console.error(err);
-        });
-    });
+    }
+  }
+  try {
+    await getSpreadsheetData()
+  } catch (e) {
+    console.error('***Error loading initial spreadsheet***');
+    return console.error(err);
+  }
 }
 
 init();

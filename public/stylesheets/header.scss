@@ -9,18 +9,6 @@
     color: inherit;
   }
 
-  #Setmore_button_iframe {
-    background: $off-black;
-    color: white;
-    padding: 10px;
-    text-decoration: none;
-    margin: 0 10px;
-
-    &:hover {
-      background: #333;
-    }
-  }
-
   .header__desktop {
     height: 75px;
     background: white;
@@ -72,43 +60,21 @@
         &:hover {
           cursor: pointer;
 
-          .fa-facebook {
+          .fa {
+            background-color: white;
+            border-radius: .25rem;
+          }
+
+          .fa-facebook-square {
             color: $facebook-blue;
-            text-shadow:
-            -1px -1px 0 #fff,
-            1px -1px 0 #fff,
-            -1px 1px 0 #fff,
-            1px 1px 0 #fff;
           }
 
-          .fa-twitter {
-            color: $twitter-blue;
-            outline-color: white;
-            text-shadow:
-            -1px -1px 0 #fff,
-            1px -1px 0 #fff,
-            -1px 1px 0 #fff,
-            1px 1px 0 #fff;
-          }
-
-          .fa-pinterest-p {
+          .fa-pinterest-square {
             color: $pinterest-red;
-            text-shadow:
-            -1px -1px 0 #fff,
-            1px -1px 0 #fff,
-            -1px 1px 0 #fff,
-            1px 1px 0 #fff;
-            outline-color: white;
           }
 
           .fa-instagram {
             color: $instagram-brown;
-            text-shadow:
-            -1px -1px 0 #fff,
-            1px -1px 0 #fff,
-            -1px 1px 0 #fff,
-            1px 1px 0 #fff;
-            outline-color: white;
           }
         }
       }
@@ -138,14 +104,6 @@
 	}
 
 	.header__mobile {
-		#Setmore_button_iframe {
-			text-decoration: none;
-			float: left;
-			padding-left: 1em;
-			color: $graphite;
-			font-size: 1rem;
-		}
-
 		.header__logo {
 			font-size: 1.5em;
 			width: 100%;

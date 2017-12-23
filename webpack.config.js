@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: ['./public/js/components/Main.jsx','./public/stylesheets/reset.scss'],
@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file?name=public/lib/fonts/[name].[ext]'
+        loader: 'file?name=lib/fonts/Lavanderia/[name].[ext]'
       },
       {
         test: /\.scss$/,

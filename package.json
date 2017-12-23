@@ -1,6 +1,10 @@
 {
   "name": "auroraswebsite",
   "version": "1.0.0",
+  "engines": {
+    "node": ">= 8.9.0"
+  },
+  "engineStrict": true,
   "description": "Website for Auoras Barber and Beauty Shop",
   "scripts": {
     "start": "node --harmony ./bin/www",
