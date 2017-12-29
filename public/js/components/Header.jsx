@@ -34,16 +34,19 @@ export default class Header extends React.Component {
       header = (
         <div className='header__desktop'>
           <div className='header__section'>
-            <i className='fa fa-scissors fa-lg'></i>
+            <Link id='home' key='home' className='header__item' activeClassName='is-selected' to='/'>Home</Link>
+          </div>
+          <div className='header__section' >
             <div className='header__logo'>Aurora's Barber and Beauty Shop</div>
           </div>
           <div className='header__section'>
-            {links}
+            <Link id='services' key='services' className='header__item' activeClassName='is-selected' to='/services'>Services</Link>
+            <Link id='stylists' key='stylists' className='header__item' activeClassName='is-selected' to='/stylists'>Stylists</Link>
           </div>
         </div>
       );
     }
-
+    
     // Header for social media icons
     let smHeader = (
       <div className='header__sm'>
@@ -56,10 +59,14 @@ export default class Header extends React.Component {
             150 Phoenix Mills Plaza Victor, New York 14564
             </a>
         </div>
+      <div className='header__section'>
+        Call today to make an appointment!
+      </div>
         <div className='header__section'>
           <a className='header__sm-icon' target='_blank' href='https://www.facebook.com/awing67/?hc_ref=SEARCH&fref=nf'><i className='fa fa-facebook-square fa-lg'></i></a>
           <a className='header__sm-icon'><i className='fa fa-pinterest-square fa-lg'></i></a>
           <a className='header__sm-icon'><i className='fa fa-instagram fa-lg'></i></a>
+          <i className='fa fa-phone'></i>&nbsp;(585) 924-3000
         </div>
       </div>
     );
