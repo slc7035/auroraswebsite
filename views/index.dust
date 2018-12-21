@@ -1,9 +1,0 @@
-{>"layout"/}
-
-{<content}
-  <input type="hidden" value="{services}" id="servicesJSON" />
-  <input type="hidden" value="{stylists}" id="stylistsJSON" />
-  <input type="hidden" value="#{error}" data-error-message="{message}" id="error" />
-  <div id="mainContent" >
-  </div>
-{/content}
