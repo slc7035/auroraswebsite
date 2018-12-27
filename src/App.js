@@ -19,14 +19,14 @@ import CardContent from "@material-ui/core/CardContent";
 import Map from "./Map";
 
 // Icons
-import { FacebookBox, Instagram } from "mdi-material-ui";
+import { FacebookBox, Instagram, ClockOutline, Phone } from "mdi-material-ui";
 
 // Images
 import SplashImage from "./images/family_adjusted.jpg";
 import ProductShelfImage from "./images/products_shelf.jpg";
 // import MilkshakeImage from './images/products_shelf_milkshake.jpg'
 import MilkshakeImage from "./images/milkshake.jpg";
-import RibbonCuttingImage from "./images/ribbon_cutting.jpg";
+// import RibbonCuttingImage from "./images/ribbon_cutting.jpg";
 import NailpolishImage from "./images/nailpolishes.jpg";
 
 import "./App.css";
@@ -118,8 +118,8 @@ const styles = theme => ({
     "padding-top": theme.spacing.unit
   },
   mapContainer: {
-    width: "60%",
-    height: "500px",
+    width: "80%",
+    height: "750px",
     margin: "auto"
   }
 });
@@ -215,13 +215,13 @@ class App extends Component {
                         Services
                       </Button>
                       <Button
-                        href="#contact"
+                        href="#about"
                         variant="text"
                         size="large"
                         disableRipple={true}
                         className={classes.headerSectionBtnOverride}
                       >
-                        Contact
+                        About
                       </Button>
                     </Grid>
                     <Grid item xs={6}>
@@ -329,6 +329,29 @@ class App extends Component {
               <Typography variant="h3" className={classes.sectionTitle}>
                 About
               </Typography>
+              <Grid item container justify="space-around" xs={12}>
+                <Grid item>
+                  <Typography variant="h5">
+                    <ClockOutline />
+                    &nbsp; Hours:
+                  </Typography>
+                  <Typography variant="subtitle1">
+                    Monday - Thursday: 9am - 7pm
+                  </Typography>
+                  <Typography variant="subtitle1">Friday: 9am - 6pm</Typography>
+                  <Typography variant="subtitle1">
+                    Saturday: 9am - 3pm
+                  </Typography>
+                  <Typography variant="subtitle1">Sunday: Closed</Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant="h5">
+                    <Phone />
+                    &nbsp; Phone:
+                  </Typography>
+                  <Typography variant="subtitle1">(585) 924-3000</Typography>
+                </Grid>
+              </Grid>
               <Grid item xs={12}>
                 <Map
                   lat={42.9739765}

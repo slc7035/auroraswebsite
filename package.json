@@ -1,7 +1,11 @@
 {
   "name": "auroraswebsite",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "11.5.0",
+    "npm": "6.5.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
